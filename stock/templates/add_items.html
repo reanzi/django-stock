@@ -56,8 +56,18 @@
     <h1>{{title}}</h1>
     <form action="" method="POST">
       {% csrf_token %} 
-      {{ form|crispy }}
-      <input class="btn btn-lg btn-primary"type="submit" value="Save" />
+        <div class="row">
+            <div class="col-3">
+                {{ form.category|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.item_name|as_crispy_field }}
+            </div>
+            <div class="col-3">
+                {{ form.quantity|as_crispy_field }}
+            </div>
+        </div>
+        <input class="btn btn-lg btn-secondary"type="submit" value="Save Item" />
     </form>
     </div>
 </main>
