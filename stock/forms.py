@@ -11,17 +11,13 @@ from .models import Stock
 # Forms used to enter new Item in the store
 
 
-class StockCreateForm(forms.ModelForm):
-    class Meta:
-        model = Stock
-        fields = ['category', 'item_name', 'quantity']
+# class StockCreateForm(forms.ModelForm):
+#     class Meta:
+#         model = Stock
+#         fields = ['category', 'item_name', 'quantity']
 
 
 class StockCreateForm(forms.ModelForm):
-    """
-    TODO: Extend CompanyModel into Form
-    :returns: TODO
-    """
 
     def __init__(self, *args, **kwargs):
         super(StockCreateForm, self).__init__(*args, **kwargs)
@@ -31,7 +27,7 @@ class StockCreateForm(forms.ModelForm):
         self.helper.method = "POST"
         self.helper.form_class = 'form-inline'
         self.helper.field_template = 'bootstrap3/layout/inline_field.html'
-        self.helper.form_action = "company:create-employee"
+        # self.helper.form_action = "company:create-employee"
 
         self.helper.layout = Layout(
             Div(
@@ -47,3 +43,9 @@ class StockCreateForm(forms.ModelForm):
     class Meta:
         model = Stock
         fields = ['category', 'item_name', 'quantity']
+
+
+class StockSearchForm(forms.ModelForm):
+    class Meta:
+        model = Stock
+        fields = ['category']
