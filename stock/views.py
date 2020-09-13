@@ -6,18 +6,18 @@ from .forms import StockCreateForm
 
 
 def home(request):
-    title = 'Welcome: This is the Home Page'
+    header = 'Welcome: This is the Home Page'
     context = {
-        "title": title,
+        "header": header,
     }
     return render(request, "home.html", context)
 
 
 def list_items(request):
-    title = 'List of Items'
+    header = 'List of Items'
     queryset = Stock.objects.all()
     context = {
-        "title": title,
+        "header": header,
         "items": queryset
     }
     return render(request, "list_items.html", context)
